@@ -11,6 +11,34 @@ const tutorials = [
   'what is JSONP?'
 ];
 
-const titleCased = () => {
-  return tutorials
+//function for each word's first letter to be capitalize + rest of word added back in (slice from index 1 to the end)
+const upperFirst = word => word.charAt(0).toUpperCase() + word.slice(1)
+
+//new array called wordsArray where sentences of tutorial are split by white space (to separate each word)
+//loop through each word using map in wordsArray to execute upperFirst on it then have it join back by adding space
+
+function titleCasedOne(tutorial) {
+  let wordsArray = tutorial.split(' ')
+  return tutorial = wordsArray.map(upperFirst).join(' ')
 }
+
+//loop through tutorial array and execute titleCasedOne functon on each array
+const titleCased = () => tutorials.map(titleCasedOne)
+
+
+
+
+
+// function firstLetter(splitTutorials) {
+//   return splitTutorials.filter(function(splitTutorials) {return splitTutorials.charAt(0)})
+// }
+// const eachWord = (firstLetter(splitTutorials));
+// // ['What', 'is', 'the', 'Constructor', 'OO', 'pattern?']
+
+// const capitalEachWord = eachWord.map(function(item) {
+//    return item.charAt(0).toUpperCase() + item.substring(1).toLowerCase();
+//  })
+//  //['What', 'Is', 'The', 'Constructor', 'Oo', 'Pattern?']
+
+// console.log(capitalEachWord.join(' '));
+// //What Is The Constructor Oo Pattern?
